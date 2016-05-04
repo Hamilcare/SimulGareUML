@@ -20,13 +20,13 @@ public class Simulation {
 			System.out.println(rand);
 			switch (rand) {
 			case 1:
-				trains[i] = new TER();
+				trains[i] = new TER(i);
 				break;
 			case 2:
-				train[i] = new InterCite();
+				trains[i] = new InterCite(i);
 				break;
 			case 3:
-				train[i] = new TGV();
+				trains[i] = new TGV(i);
 				break;
 			default:
 				break;
@@ -38,7 +38,7 @@ public class Simulation {
 	public boolean estPossible() {
 		int totalPlace = 0;
 		for (Train t : trains) {
-			totalPlace += t.nbPlaceLibre;
+			totalPlace += t.nbPlacesLibres;
 		}
 
 		return totalPlace >= clients.length;
